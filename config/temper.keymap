@@ -32,6 +32,15 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
+// Define mod-morph with a *single* mod trigger for less repetition.
+#define SIMPLE_MORPH(NAME, MOD, BINDING1, BINDING2)                            \
+  ZMK_MOD_MORPH(NAME, mods = <(MOD_L##MOD | MOD_R##MOD)>;                      \
+                bindings = <BINDING1>, <BINDING2>;)
+ 
+SIMPLE_MORPH(aunder, SFT, &kp APOS, &kp UNDER)
+SIMPLE_MORPH(ddqt, SFT, &kp DOT, &kp DQT)
+SIMPLE_MORPH(sless, SFT, &kp SLASH, &kp LT)
+
 #include "combos.dtsi"
 #include "mouse.dtsi"
 
@@ -41,13 +50,13 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         default_layer {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                &kp F         &kp P         &kp D         &kp L         &kp X           &kp SEMI        &kp U         &kp O         &kp Y         &kp B
+                &kp B         &kp L         &kp D         &kp W         &kp Z           &aunder        &kp F         &kp O         &kp U         &kp J
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &hml LGUI S   &hml LALT N   &hml LCTRL T  &hml LSHIFT H    &kp K           &kp COMMA  &hmr RSHIFT A   &hmr RCTRL E  &hmr LALT I   &hmr RGUI C
+             &hml LGUI N   &hml LALT R   &hml LCTRL T  &hml LSHIFT S    &kp G           &kp  Y     &hmr RSHIFT H   &hmr RCTRL A   &hmr LALT E   &hmr RGUI I
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                &kp V         &kp W         &kp G         &kp M         &kp J           &kp MINUS      &kp DOT      &kp APOS     &kp EQUAL     &kp SLASH
+                &kp Q         &kp X         &kp M         &kp C         &kp V           &kp K          &kp P        &kp DOT       &ddqt         &sless
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                             XXX      &mt LGUI TAB   &lt NAV R        &lt NUM SPACE  &lt FUN RET       XXX
+                                             XXX      &mt LGUI ESC   &lt NAV TAB       &lt NUM SPACE  &lt FUN RET       XXX
         //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
