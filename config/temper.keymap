@@ -9,7 +9,6 @@
 #define NUM 2
 #define FUN 3
 #define SYS 4
-#define MOUSE 5
 
 #define XXX &none
 #define ___ &trans
@@ -33,7 +32,6 @@ MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 
 #include "combos.dtsi"
-#include "mouse.dtsi"
 
 / {
     keymap {
@@ -41,13 +39,13 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         default_layer {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                &kp F         &kp P         &kp D         &kp L         &kp X           &kp SEMI        &kp U         &kp O         &kp Y         &kp B
+                &kp B         &kp L         &kp D         &kp W         &kp Z           &kp MINUS       &kp F         &kp O         &kp U         &kp J
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-             &hml LGUI S   &hml LALT N   &hml LCTRL T  &hml LSHIFT H    &kp K           &kp COMMA  &hmr RSHIFT A   &hmr RCTRL E  &hmr LALT I   &hmr RGUI C
+             &hml LGUI N  &hml LALT R   &hml LCTRL T  &hml LSHIFT S     &kp G             &kp Y     &hmr RSHIFT H &hmr RCTRL A   &hmr LALT E   &hmr RGUI I
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                &kp V         &kp W         &kp G         &kp M         &kp J           &kp MINUS      &kp DOT      &kp APOS     &kp EQUAL     &kp SLASH
+                &kp Q         &kp X         &kp M         &kp C         &kp V             &kp K         &kp P       &kp COMMA      &kp DOT     &kp SLASH
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                             XXX      &mt LGUI TAB   &lt NAV R        &lt NUM SPACE  &lt FUN RET       XXX
+                                             XXX      &mt LGUI ESC   &lt NAV TAB      &lt NUM SPACE    &kp RET         XXX
         //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -55,11 +53,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         nav_layer {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                 XXX           XXX      &kp LC(PGUP)  &kp LC(PGDN)       XXX               XXX           XXX           XXX           XXX           XXX
+                 XXX           XXX      &kp LC(PGUP)  &kp LC(PGDN)       XXX               XXX        &kp HOME      &kp PGDN      &kp PGUP      &kp END
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-              &kp LGUI      &kp LALT      &kp LCTRL    &kp LSHIFT    &kp LC(U)          &kp HOME      &kp LEFT      &kp DOWN      &kp UP       &kp RIGHT
+              &kp LGUI      &kp LALT      &kp LCTRL    &kp LSHIFT    &kp LC(U)             XXX        &kp LEFT      &kp DOWN      &kp UP       &kp RIGHT
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 XXX           XXX           XXX           XXX       &kp LC(D)             XXX         &kp DOT      &kp PGDN      &kp PGUP      &kp END
+                 XXX           XXX           XXX           XXX       &kp LC(D)             XXX           XXX           XXX        &kp DOT          XXX
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                              XXX           XXX           XXX            &kp SPACE      &kp RET         XXX
         //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
@@ -69,13 +67,13 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         num_layer {
             bindings = <
         // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                 XXX         &kp N4        &kp N5        &kp N6         &kp X           &kp SEMI     &kp LPAR      &kp RPAR       &kp STAR         XXX
+                 XXX         &kp N4        &kp N5        &kp N6          XXX                XXX          XXX           XXX          XXX            XXX
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-               &kp N0        &kp N1        &kp N2        &kp N3          XXX               XXX       &kp SPACE     &kp DOWN       &kp UP        &kp RET
+               &kp N0        &kp N1        &kp N2        &kp N3          XXX                XXX      &kp SPACE     &kp DOWN       &kp UP        &kp RET
         // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                 XXX         &kp N7        &kp N8        &kp N9          XXX            &kp MINUS     &kp DOT          XXX        &kp PLUS      &kp SLASH
+                 XXX         &kp N7        &kp N8        &kp N9          XXX                XXX          XXX           XXX       &kp DOT          XXX
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-                                             XXX         &kp TAB       &kp N0               XXX           XXX           XXX
+                                             XXX         &kp TAB       &kp N0               XXX          XXX           XXX
         //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
             >;
         };
@@ -105,20 +103,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
         // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
                                              XXX           XXX           XXX               XXX           XXX           XXX
         //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-            >;
-        };
-
-        mouse_layer {
-            bindings = <
-                //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-                        XXX           XXX          U_MS_U           XXX         XXX             XXX         U_WH_R        U_WH_D        U_WH_U        U_WH_R
-                //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                        XXX           U_MS_L       U_MS_D        U_MS_R         XXX             XXX         U_MS_L        U_MS_D        U_MS_U        U_MS_R
-                //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                        XXX           XXX           XXX           XXX           XXX             XXX          XXX           XXX          XXX           XXX
-                //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                                    XXX        &mo FUN      &mkp LCLK           XXX          XXX           XXX
-                //                            ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
             >;
         };
     };
